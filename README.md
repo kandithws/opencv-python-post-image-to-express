@@ -15,4 +15,6 @@ Then, run the python script
 
 `$ python2 post_cv_img.py`
 
+From here the image should be recieved and re-created with timestamp under "uploads"
+
 

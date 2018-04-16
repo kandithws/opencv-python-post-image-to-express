@@ -55,12 +55,13 @@ def publish_json_with_cv_mat_with_auth(data, mat_img, url, api_key):
     req = requests.Request('POST', url, files = files).prepare()
     req.headers['Authorization'] = 'Token token=' + api_key
     s = requests.Session()
-    s.send(req)
+    res = s.send(req)
+    print(res.content)
 
 if __name__ == '__main__':
     img_mat = cv2.imread('example.jpg',cv2.IMREAD_COLOR)
-    data = {'license_plate': 'W400M', 'camera_id': '12345', 'local_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S') }
+    data = {'license_plate_number': 'ABC-123', 'timestamp': datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ") }
     # publish_json_with_cv_mat(data, img_mat ,'http://localhost:3000/api/publish_license')
-    publish_json_with_cv_mat_with_auth(data, img_mat, 'http://localhost:3000/api/publish_license', '123fasdf')
+    publish_json_with_cv_mat_with_auth(data, img_mat, 'http://localhost:3000/api/publish_license', 'JvHRsPA1SkqPnlm10BM0rwtt')
     print "Procedure Done!"
 

@@ -25,7 +25,10 @@ app.post('/api/publish_license', upload.single('image'), function (req, res){
     
     console.log('Hello World!!!');
     var data = JSON.parse(req.body.json); // will get as raw string
+    console.log(req.headers)
+    console.log(req.headers.authorization)
     console.log('Publish License Plate API Request: ' + JSON.stringify(data));
+    console.log('Publish License Plate API Request: ' + req.body.json);
     console.log('Saving image at: ' + req.file.path);
     res.send(JSON.stringify({status: 'FOUND'}) );
 })
